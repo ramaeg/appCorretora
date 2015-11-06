@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      >
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Corretora de Seguros</title>
+</h:head>
+<h:body>
+	<h1><h:outputText value="#{msg['cad.Corr']}" /></h1>
+	<br/>
+	<hr/>
+		<h:form>
+		<p:panelGrid columns="4" cellpadding="">
+			<p:outputLabel for="nome" value="#{msg.nome}"/>
+			<p:inputText value="#{apoliceMB.pessoa.nome}" id="nome" size="50"  />
+			<p:outputLabel for="cpf" value="#{msg.cpf}"/>
+			<p:inputMask value="#{apoliceMB.pessoa.cpf}" id="cpf" size="20" mask="999.999.999-99" />
+			
+			<p:outputLabel for="nascimento" value="#{msg.nascimento}" />
+			<p:inputMask mask="99/99/9999" value="#{apoliceMB.pessoa.nascimento}" id="nascimento" size="15">
+				<f:convertDateTime pattern="dd/mm/yyyy"/>
+			</p:inputMask>
+			<p:outputLabel for="rg" value="#{msg.rg}" />
+			<p:inputText value="#{apoliceMB.pessoa.rg}" id="rg" size="15" />
+			<p:outputLabel for="estadoCivil" value="#{msg.estadoCivil}" />
+			<p:selectOneMenu  value="#{apoliceMB.estadoCivil}" id="estadoCivil">
+				<f:selectItem itemValue="solteiro" itemLabel="Solteiro(a)"/>
+				<f:selectItem itemValue="casado/uniaoEstavel" itemLabel="Casado(a)/União Estavel"/>
+				<f:selectItem itemValue="separado/divorciado" itemLabel="Separado(a)/Divorciado(a)"/>
+				<f:selectItem itemValue="viuvo" itemLabel="Viúvo(a)"/>
+			</p:selectOneMenu>
+			<p:outputLabel for="telefone" value="#{msg.telefone}"/>
+			<p:inputMask value="#{apoliceMB.pessoa.telefone}" id="telefone" size="15" mask="(99)99999-9999" maxlength="14"/>
+			<p:outputLabel for="endereco" value="#{msg.endereco}" />
+			<p:inputText value="#{apoliceMB.pessoa.endereco}" id="endereco" size="50"/>
+			<p:outputLabel /><p:outputLabel />
+			
+			<p:outputLabel for="ci" value="#{msg.ci}"/><h:inputText value="#{apoliceMB.automovel.ci}" id="ci" size="20"/>
+			<p:outputLabel for="marca" value="#{msg.marca}" /><h:inputText value="#{apoliceMB.automovel.marca}" id="marca" size="10"/>
+			<p:outputLabel for="modelo" value="#{msg.modelo}"/><h:inputText value="#{apoliceMB.automovel.modelo}" id="modelo" size="30"/>
+			<p:outputLabel for="chassi" value="#{msg.chassi}" /><h:inputText value="#{apoliceMB.automovel.chassi}" id="chassi" size="20"/>
+			<p:outputLabel for="placa" value="#{msg.placa}" /><h:inputText value="#{apoliceMB.automovel.placa}" id="placa" size="10"/>
+			<p:outputLabel for="anoFabricacao" value="#{msg.anoFabricacao}" /><h:inputText value="#{apoliceMB.automovel.anoFabricacao}" id="anoFabricacao" size="5"/>
+			<p:outputLabel for="anoModelo" value="#{msg.anoModelo}" /><h:inputText value="#{apoliceMB.automovel.anoModelo}" id="anoModelo" size="5"/>
+			<p:outputLabel for="renavam" value="#{msg.renavam}" /><h:inputText value="#{apoliceMB.automovel.renavam}" id="renavam" size="10"/>
+			<p:outputLabel /><p:outputLabel />
+			
+			<p:outputLabel for="vigenciaInicial" value="#{msg.vigenciaInicial}"/>
+			<p:inputText value="#{apoliceMB.apolice.vigenciaInial}" id="vigenciaInicial" size="10">
+				<f:convertDateTime pattern="dd/mm/yyyy" />
+			</p:inputText>			
+			<p:outputLabel for="vigenciaFinal" value="#{msg.vigenciaFinal}"/>
+			<p:inputText value="#{apoliceMB.apolice.vigenciaFinal}" id="vigenciaFinal" size="10">
+				<f:convertDateTime pattern="dd/mm/yyyy" />
+			</p:inputText>
+			<p:outputLabel for="seguradora" value="#{msg.seguradora}"/><h:inputText value="#{apoliceMB.apolice.seguradora}" id="seguradora" size="10" />
+			<p:outputLabel for="numero" value="#{msg.numero}"/><h:inputText value="#{apoliceMB.apolice.numero}" id="numero" size="30"/>
+			<p:outputLabel for="bonus" value="#{msg.bonus}"/><h:inputText value="#{apoliceMB.apolice.bonus}" size="5" id="bonus"/>
+			<p:outputLabel /><p:outputLabel />
+			  
+			<p:commandButton action="#{apoliceMB.cadastrar}" value="Cadastrar"/>
+			<p:commandButton action="#{apoliceMB.voltar}" value="Voltar"/> 
+			 
+		</p:panelGrid>
+	</h:form>
+	<hr/>
+</h:body>
+</html>
